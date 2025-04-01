@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevDeck</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🃏 DevDeck</h1>
+    <p class="subtitle">Your personal deck of dev tools, tips & shortcuts</p>
+  </header>
+
+  <section class="controls">
+    <input type="text" id="search-input" placeholder="Search cards..." />
+    
+    <select id="category-select">
+      <option value="All">All Categories</option>
+      <option value="Git">Git</option>
+      <option value="API">API</option>
+      <option value="Terminal">Terminal</option>
+      <option value="Node">Node</option>
+      <option value="Shortcut">Shortcut</option>
+      <option value="Debug">Debug</option>
+    </select>
+
+    <button id="favorite-toggle">⭐ Show Favorites</button>
+  </section>
+
+  <main>
+    <div id="card-container" class="deck-grid">
+      <!-- Cards render here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>Crafted with care by Benjamin Lisle — for devs who like their tools sharp and organized</p>
+  </footer>
+
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>

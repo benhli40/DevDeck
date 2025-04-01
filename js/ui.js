@@ -1,12 +1,14 @@
 // ui.js
 
 import { cards } from './data.js';
+import { saveDeckToStorage } from './script.js';
 
 const cardContainer = document.getElementById('card-container');
 
 // Main render function
-export function renderCards(cardList = cards) {
-  cardContainer.innerHTML = ''; // Clear existing cards
+export function renderCards(cardList, onFavoriteToggle) {
+  const cardContainer = document.getElementById('card-container');
+  cardContainer.innerHTML = '';
 
   cardList.forEach(card => {
     const cardEl = document.createElement('div');
@@ -27,10 +29,9 @@ export function renderCards(cardList = cards) {
       </button>
     `;
 
-    // Favorite toggle listener
-    cardEl.querySelector('.fav-btn').addEventListener('click', () => {
-      card.favorite = !card.favorite;
-      renderCards(cardList); // re-render to update UI
+    const favBtn = cardEl.querySelector('.fav-btn');
+    favBtn.addEventListener('click', () => {
+      if (onFavoriteToggle) onFavoriteToggle(card.id);
     });
 
     cardContainer.appendChild(cardEl);

@@ -1,21 +1,19 @@
 // filters.js
 
-import { cards } from './data.js';
-
-export function filterBySearch(searchText) {
+export function filterBySearch(list, searchText) {
   const term = searchText.toLowerCase();
-  return cards.filter(card =>
+  return list.filter(card =>
     card.title.toLowerCase().includes(term) ||
     card.tags.some(tag => tag.toLowerCase().includes(term))
   );
 }
 
-export function filterByCategory(category) {
+export function filterByCategory(list, category) {
   return category === 'All'
-    ? cards
-    : cards.filter(card => card.category.toLowerCase() === category.toLowerCase());
+    ? list
+    : list.filter(card => card.category.toLowerCase() === category.toLowerCase());
 }
 
-export function filterFavorites() {
-  return cards.filter(card => card.favorite);
+export function filterFavorites(list) {
+  return list.filter(card => card.favorite);
 }
